@@ -1,0 +1,192 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+
+}
+
+/*         NAV BAR         */
+
+.show{
+    display: flex !important;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+}
+
+nav ul{ /*links de escritorio*/
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li > a{ /*Estilos para hipervinculos hijos - carro/login/fav */
+    display: block;
+    position: relative;
+    padding: 20px 15px 10px 15px;
+    text-decoration: none;
+
+    color: black
+}
+
+nav ul li .link::before{ /*Efecto barra blanca abajo de los links*/
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+
+    background-color:black
+}
+
+nav ul li .link:hover:before{ 
+    transform: scaleX(1);
+}
+
+nav .more{
+    display: none;
+}
+
+nav .menu{ /*Menu flotante oculto en el more cuando cambia resolucion*/
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    min-width: 200px;
+    margin-top: 54px;
+
+    background-color: black
+}
+
+nav .menu a{
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+nav .menu a:hover{
+    background-color: white;
+    color: black;
+}
+
+nav .mobil{ /*A partir de aca esta el estilo para el nav en modo mobil, se distingue por la clase .mobil*/
+    display: none;
+    width: 100%;
+}
+
+nav .mobil .header{
+
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: white;
+}
+
+nav .mobil .header a{
+    display: inline-flex;
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav .mobil .header #bmenu {
+    border: none;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+}
+
+nav .mobil .links{
+    display: none;
+    flex-direction: column;
+    position: relative;
+    z-index: 200;
+}
+
+nav .mobil .links a{
+    font-size: 20px;
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+}
+
+nav .mobil .links a:hover{
+    font-size: 20px;
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+}
+
+/*-----------------------------------------------------------------------*/
+
+.main{
+    background-color: red;
+    height: 600px;
+    text-align: center;
+    font-size: 50px;
+    padding: 50px;
+}
+
+.destacados{
+    background-color: green;
+    height: 200px;
+    text-align: center;
+    font-size: 50px;
+}
+
+.oferta-dia{
+    background-color: orangered;
+    height: 200px;
+    text-align: center;
+    font-size: 50px;
+}
+
+.footer{
+    background-color: gray;
+    height: 100px;
+    text-align: center;
+    font-size: 50px;
+}
+@media screen and (max-width: 1044px){ /*media query para esconder menus y mostrar menu more*/
+    nav .link-hide{
+        display: none;
+    }
+    nav .more{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 706px){ /*media query para que entre en modo mobil*/
+    
+    nav{
+        width: 100%;
+        padding: 0;
+    }
+    nav ul{
+        display: none;
+    }
+    nav .mobil{
+        display: block;
+    }
+}
